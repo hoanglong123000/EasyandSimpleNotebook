@@ -139,10 +139,20 @@
     <None Include="App.config" />
   </ItemGroup>
   <ItemGroup>
+    <Content Include="Icons\10519758001553668338-128.png" />
+    <Content Include="Icons\1111491131530273520-128.png" />
+    <Content Include="Icons\11600322591535351491-128.png" />
+    <Content Include="Icons\11746585021530177262-128.png" />
+    <Content Include="Icons\17637375381582779183-128.png" />
+    <Content Include="Icons\19571981121555931407-128.png" />
+    <Content Include="Icons\8809785241586787932-128.png" />
+    <Content Include="Icons\bold.png" />
     <Content Include="Icons\find.png" />
+    <Content Include="Icons\italic.png" />
     <Content Include="Icons\plus.PNG" />
     <Content Include="Icons\rewrite-text.png" />
     <Content Include="Icons\trash.png" />
+    <Content Include="Icons\underline.png" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
 </Project>

@@ -59,7 +59,15 @@ namespace Notebook
 
         private void richTextBox1_TextChanged(object sender, EventArgs e)
         {
+            if (this.descripbox.Text.ToString() != "")
+            {
+                this.Addnotebtn.Enabled = true;
+            }
+        }
 
+        private void AddNote_Load(object sender, EventArgs e)
+        {
+            
         }
     }
 }
