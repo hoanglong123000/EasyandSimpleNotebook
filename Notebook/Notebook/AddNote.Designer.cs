@@ -67,8 +67,8 @@ namespace Notebook
             // 
             // Addnotebtn
             // 
-            this.Addnotebtn.Enabled = false;
             this.Addnotebtn.Font = new System.Drawing.Font("Times New Roman", 16.2F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.Addnotebtn.ImageAlign = System.Drawing.ContentAlignment.BottomLeft;
             this.Addnotebtn.Location = new System.Drawing.Point(881, 606);
             this.Addnotebtn.Name = "Addnotebtn";
             this.Addnotebtn.Size = new System.Drawing.Size(140, 46);
@@ -80,7 +80,7 @@ namespace Notebook
             // descripbox
             // 
             this.descripbox.Font = new System.Drawing.Font("Microsoft Sans Serif", 13.8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.descripbox.Location = new System.Drawing.Point(12, 190);
+            this.descripbox.Location = new System.Drawing.Point(22, 192);
             this.descripbox.Name = "descripbox";
             this.descripbox.Size = new System.Drawing.Size(1009, 391);
             this.descripbox.TabIndex = 11;
@@ -195,8 +195,25 @@ namespace Notebook
             // 
             // toolStripComboBox2
             // 
+            this.toolStripComboBox2.Items.AddRange(new object[] {
+            "8",
+            "11",
+            "12",
+            "14",
+            "16",
+            "18",
+            "20",
+            "22",
+            "24",
+            "28",
+            "32",
+            "36",
+            "48",
+            "56",
+            "72"});
             this.toolStripComboBox2.Name = "toolStripComboBox2";
-            this.toolStripComboBox2.Size = new System.Drawing.Size(121, 67);
+            this.toolStripComboBox2.Size = new System.Drawing.Size(121, 37);
+            this.toolStripComboBox2.Click += new System.EventHandler(this.toolStripComboBox2_Click);
             // 
             // toolStripSeparator4
             // 

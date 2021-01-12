@@ -13,13 +13,15 @@ namespace Notebook
 {
     public partial class Main : Form
     {
+
         Noteb notecon = new Noteb();
         private string connectionstring = @"data source=LAPTOP-5C698NK2\SQLEXPRESS;initial catalog=notebook;integrated security=True;MultipleActiveResultSets=True;App=EntityFramework";
         private SqlCommand sqlcom = new SqlCommand();
         private SqlDataReader sqlreader;
+        
         public Main()
         {
-            InitializeComponent();
+            this.InitializeComponent();
         }
 
         
@@ -51,17 +53,15 @@ namespace Notebook
         private void Rewritebtn_Click(object sender, EventArgs e)
         {
            
-          
         }
 
         private void deletebtn_Click(object sender, EventArgs e)
         {
-           
+         
         }
 
         private void Readbtn_Click(object sender, EventArgs e)
         {
-            
             ReadNote transscrn = new ReadNote();
             transscrn.ShowDialog();
         }
@@ -86,7 +86,7 @@ namespace Notebook
 
         private void Notebooklst_CellContentClick(object sender, DataGridViewCellEventArgs e)
         {
-
+         
         }
 
         private void đăngXuấtToolStripMenuItem_Click(object sender, EventArgs e)
@@ -103,9 +103,65 @@ namespace Notebook
             transscrn.ShowDialog();
         }
 
+        private void Notebooklst_CellClick(object sender, DataGridViewCellEventArgs e)
+        {
+            int i = e.RowIndex;
+            this.titlebox.Text = this.Notebooklst.Rows[i].Cells[1].Value.ToString();
+
+        }
+
+        private int GetPage(string p)
+        {
+            for(int i = 0; i < this.Notebooklst.Rows.Count; i++)
+            {
+                if (this.Notebooklst.Rows[i].Cells[1].Value.ToString() == this.titlebox.Text)
+                {
+                    return i;
+                }
+            }
+            return -1;
+        }
+
         private void Deletetoolstripbtn_Click(object sender, EventArgs e)
+        {
+            int ind = this.GetPage(this.titlebox.Text);
+            if (ind == -1)
+            {
+                MessageBox.Show("LOI");
+            }
+            else
+            {
+                this.Notebooklst.Rows.RemoveAt(ind);
+                
+            }
+            
+
+            NoteDB noteDB = notecon.NoteDBs.FirstOrDefault(p => p.Title == this.titlebox.Text);
+            if (noteDB != null)
+            {
+                notecon.NoteDBs.Remove(noteDB);
+                notecon.SaveChanges();
+                this.Refresh();
+                this.titlebox.Clear();
+            }
+
+        }
+
+        private void toolStrip1_ItemClicked(object sender, ToolStripItemClickedEventArgs e)
         {
 
         }
+
+        private void Findbtn_Click(object sender, EventArgs e)
+        {
+
+        }
+
+        private void pagebox_TextChanged(object sender, EventArgs e)
+        {
+
+        }
+
+        
     }
 }

@@ -51,6 +51,7 @@ namespace Notebook
             this.toolStripSeparator4 = new System.Windows.Forms.ToolStripSeparator();
             this.Findbtn = new System.Windows.Forms.ToolStripButton();
             this.toolTip1 = new System.Windows.Forms.ToolTip(this.components);
+            this.titlebox = new System.Windows.Forms.TextBox();
             ((System.ComponentModel.ISupportInitialize)(this.Notebooklst)).BeginInit();
             this.menuStrip1.SuspendLayout();
             this.toolStrip1.SuspendLayout();
@@ -58,7 +59,6 @@ namespace Notebook
             // 
             // Notebooklst
             // 
-            this.Notebooklst.AllowUserToAddRows = false;
             this.Notebooklst.AllowUserToDeleteRows = false;
             this.Notebooklst.BackgroundColor = System.Drawing.SystemColors.Control;
             this.Notebooklst.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
@@ -68,7 +68,7 @@ namespace Notebook
             this.username,
             this.date});
             this.Notebooklst.GridColor = System.Drawing.SystemColors.Control;
-            this.Notebooklst.Location = new System.Drawing.Point(14, 105);
+            this.Notebooklst.Location = new System.Drawing.Point(14, 149);
             this.Notebooklst.Margin = new System.Windows.Forms.Padding(5);
             this.Notebooklst.Name = "Notebooklst";
             this.Notebooklst.ReadOnly = true;
@@ -77,6 +77,7 @@ namespace Notebook
             this.Notebooklst.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
             this.Notebooklst.Size = new System.Drawing.Size(1404, 522);
             this.Notebooklst.TabIndex = 10;
+            this.Notebooklst.CellClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.Notebooklst_CellClick);
             this.Notebooklst.CellContentClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.Notebooklst_CellContentClick);
             // 
             // No
@@ -181,6 +182,7 @@ namespace Notebook
             this.toolStrip1.Size = new System.Drawing.Size(1483, 37);
             this.toolStrip1.TabIndex = 13;
             this.toolStrip1.Text = "toolStrip1";
+            this.toolStrip1.ItemClicked += new System.Windows.Forms.ToolStripItemClickedEventHandler(this.toolStrip1_ItemClicked);
             // 
             // toolStripSeparator1
             // 
@@ -242,12 +244,22 @@ namespace Notebook
             this.Findbtn.Size = new System.Drawing.Size(34, 34);
             this.Findbtn.Text = "toolStripButton3";
             this.Findbtn.ToolTipText = "Tìm Trang ";
+            this.Findbtn.Click += new System.EventHandler(this.Findbtn_Click);
+            // 
+            // titlebox
+            // 
+            this.titlebox.Location = new System.Drawing.Point(161, 98);
+            this.titlebox.Name = "titlebox";
+            this.titlebox.Size = new System.Drawing.Size(100, 34);
+            this.titlebox.TabIndex = 15;
+            this.titlebox.TextChanged += new System.EventHandler(this.pagebox_TextChanged);
             // 
             // Main
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(14F, 29F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(1483, 702);
+            this.Controls.Add(this.titlebox);
             this.Controls.Add(this.toolStrip1);
             this.Controls.Add(this.menuStrip1);
             this.Controls.Add(this.Notebooklst);
@@ -291,5 +303,6 @@ namespace Notebook
         private System.Windows.Forms.DataGridViewTextBoxColumn username;
         private System.Windows.Forms.DataGridViewTextBoxColumn date;
         private System.Windows.Forms.ToolTip toolTip1;
+        private System.Windows.Forms.TextBox titlebox;
     }
 }
