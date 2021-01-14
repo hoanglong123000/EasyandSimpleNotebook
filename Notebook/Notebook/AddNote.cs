@@ -67,7 +67,7 @@ namespace Notebook
 
         private void AddNote_Load(object sender, EventArgs e)
         {
-            
+            this1.123;   
         }
 
         private void toolStripComboBox2_Click(object sender, EventArgs e)
