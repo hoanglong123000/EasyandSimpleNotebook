@@ -1,0 +1,53 @@
+    //Tao nut save
+    path = string.Empty;
+            if (string.IsNullOrEmpty(path))
+            {
+                using (SaveFileDialog sfd = new SaveFileDialog() { Filter = "Text Documents|*.txt", ValidateNames = true, FileName = titlebox.Text })
+                {
+
+                    if (sfd.ShowDialog() == DialogResult.OK)
+                    {
+                        #region "old1"
+                        //sqlcon.Open();
+                        //this.sqlcom = new SqlCommand("Insert into NoteDB(Title,Date, Desciption) Values (@Title,@Date, @Desciption)", sqlcon);
+                        //this.sqlcom.Parameters.Add("@Title", this.titlebox.Text);
+                        //this.sqlcom.Parameters.Add("@Date", this.datebox.Value);
+                        //this.sqlcom.Parameters.Add("@Desciption", this.descripbox.Text);
+                        //this.sqlcom.ExecuteNonQuery();
+                        //sqlcon.Close();
+                        #endregion
+                        this.Close();
+                        Main main = new Main();
+                        main.Refresh();
+                        main.Show();
+                        try
+                        {
+                            using (StreamWriter sw = new StreamWriter(sfd.FileName))
+                            {
+                                await sw.WriteAsync(descripbox.Text);
+                                MessageBox.Show("Thêm Thành Công!");
+                                descripbox.Clear();
+                            }
+
+                        }
+                        catch (Exception ex)
+                        {
+                            MessageBox.Show(ex.Message, "Message", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                        }
+                    }
+                }
+            }
+            else
+            {
+                try
+                {
+                    using (StreamWriter sw = new StreamWriter(path))
+                    {
+                        await sw.WriteLineAsync(descripbox.Text);
+                    }
+                }
+                catch (Exception ex)
+                {
+                    MessageBox.Show(ex.Message, "Message", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                }
+ }
